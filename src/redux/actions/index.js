@@ -4,8 +4,6 @@ export const login = (userData) => {
         payload: {
             email: userData.email,
             password: userData.password,
-            firstName: userData.firstName,
-            lastName: userData.lastName,
             userType: userData.userType
         }
     }

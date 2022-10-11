@@ -1,31 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/actions/index';
+import { loggedin } from '../redux/actions/index';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function LoginPage() {
     const loginFlag = useSelector(state => state.loginFlag);
+    const user = useSelector(state => state.users);
     const navigate = useNavigate();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const logiN = () => {
-        axios.post('http://localhost:4000/user/check-user', { email: email, password: password })
-            .then(res => {
-                console.log("check-user", res.data)
-                if (res.data[0]) {
-                    dispatch(login(res.data[0]));
-                    setEmail("")
-                    setPassword("")
-                }
-            })
-            .catch((error) => {
-                alert("Wrong Login Info...")
-            })
+        if (email === user[0].email && password === user[0].password) {
+            dispatch(login({
+                email: email,
+                password: password,
+                userType: 'admin'
+            }));
+            setEmail("");
+            setPassword("");
+        } else {
+            alert("Wrong Login Info...")
+        }
+        // axios.post('http://localhost:4000/user/check-user', { email: email, password: password })
+        //     .then(res => {
+        //         console.log("check-user", res.data)
+        //         if (res.data[0]) {
+        //             dispatch(login(res.data[0]));
+        //             setEmail("")
+        //             setPassword("")
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         alert("Wrong Login Info...")
+        //     })
     }
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     useEffect(() => {
-        if (loginFlag) navigate('/menu');
+        if (loginFlag) navigate('/all-patients-list');
     })
     return (
         <div className='LoginPage'>

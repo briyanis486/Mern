@@ -1,29 +1,13 @@
 let initState = {
     baseUrl: '',
     loginFlag: false,
-    // users: [
-    //     {
-    //         email: 'admin@gmail.com',
-    //         password: 'password',
-    //         firstName: 'admin',
-    //         lastName: 'admin',
-    //         userType: 'admin'
-    //     },
-    //     {
-    //         email: 'nurse@gmail.com',
-    //         password: 'password',
-    //         firstName: 'Nurse',
-    //         lastName: 'Nurse',
-    //         userType: 'Nurse'
-    //     },
-    //     {
-    //         email: 'stuff@gmail.com',
-    //         password: 'password',
-    //         firstName: 'stuff',
-    //         lastName: 'stuff',
-    //         userType: 'stuff'
-    //     }
-    // ],
+    users: [
+        {
+            email: 'admin@gmail.com',
+            password: 'admin123',
+            userType: 'admin'
+        },
+    ],
     nowUser: {
         email: '',
         password: '',

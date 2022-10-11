@@ -12,6 +12,7 @@ import AllPatientsListPage from './pages/AllPatientsListPage';
 import NewPatientPage from './pages/NewPatientPage';
 
 function Routing() {
+    // const loginFlag = true;
     const loginFlag = useSelector(state => state.loginFlag);
     // if (!loginFlag) return <LoginPage />
     // else
@@ -20,7 +21,7 @@ function Routing() {
             <Routes>
                 <Route exact path="/" element={<LoginPage />} />
                 <Route exact path="/login" element={<LoginPage />} />
-                {/* {loginFlag && <Route exact path="/menu" element={<MenuPage />} />}
+                {loginFlag && <Route exact path="/menu" element={<MenuPage />} />}
                 {loginFlag && <Route exact path="/clinical-studies" element={<SubMenuPage dataToShow={0}/> } />}
                 {loginFlag && <Route exact path="/trial-organisations" element={<SubMenuPage dataToShow={1}/> } />}
                 {loginFlag && <Route exact path="/patients" element={ <PatientsPage/> } />}
@@ -28,16 +29,7 @@ function Routing() {
                 {loginFlag && <Route exact path="/new-observation" element={ <NewObservationPage/> } />}
                 {loginFlag && <Route exact path="/questions" element={ <QuestionsPage/> } />}
                 {loginFlag && <Route exact path="/all-patients-list" element={ <AllPatientsListPage/> } />}
-                {loginFlag && <Route exact path="/new-patient" element={ <NewPatientPage/> } />} */}
-                <Route exact path="/menu" element={<MenuPage />} />
-                <Route exact path="/clinical-studies" element={<SubMenuPage dataToShow={0}/> } />
-                <Route exact path="/trial-organisations" element={<SubMenuPage dataToShow={1}/> } />
-                <Route exact path="/patients" element={ <PatientsPage/> } />
-                <Route exact path="/patient-detail" element={ <PatientDetailPage/> } />
-                <Route exact path="/new-observation" element={ <NewObservationPage/> } />
-                <Route exact path="/questions" element={ <QuestionsPage/> } />
-                <Route exact path="/all-patients-list" element={ <AllPatientsListPage/> } />
-                <Route exact path="/new-patient" element={ <NewPatientPage/> } />
+                {loginFlag && <Route exact path="/new-patient" element={ <NewPatientPage/> } />}
             </Routes>
         </Router>
     )
